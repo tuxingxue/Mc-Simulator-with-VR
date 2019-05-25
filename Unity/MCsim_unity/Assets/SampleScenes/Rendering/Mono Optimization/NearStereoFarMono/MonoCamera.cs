@@ -40,7 +40,7 @@ public class MonoCamera : MonoBehaviour {
             Debug.Log("No src camera!");
             return;
         }
-        OVRDisplay.EyeRenderDesc eyeDesc = OVRManager.display.GetEyeRenderDesc(UnityEngine.VR.VRNode.LeftEye);
+        OVRDisplay.EyeRenderDesc eyeDesc = OVRManager.display.GetEyeRenderDesc(UnityEngine.XR.XRNode.LeftEye);
 
         renderTex = new RenderTexture((int)eyeDesc.resolution.x, (int)eyeDesc.resolution.y, depthBits, textureFormat, RenderTextureReadWrite.Linear);
         renderTex.antiAliasing = antiAliasingSamples;
@@ -65,7 +65,7 @@ public class MonoCamera : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         // offset left camera to center eye
-        Vector3 offset = UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.CenterEye) - UnityEngine.VR.InputTracking.GetLocalPosition(UnityEngine.VR.VRNode.LeftEye);
+        Vector3 offset = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.CenterEye) - UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
         //Debug.Log("Offset = " + offset.ToString("F4"));
         if (transform.parent)
         {

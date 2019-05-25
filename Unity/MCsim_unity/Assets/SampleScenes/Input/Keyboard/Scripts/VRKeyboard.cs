@@ -216,7 +216,7 @@ public class VRKeyboard : MonoBehaviour {
 
                 // send pointer down/up events to button
                 var pointerEvent = new PointerEventData(EventSystem.current);
-                if (e.type == EventType.keyDown)
+                if (e.type == EventType.KeyDown)
                 {
                     //Debug.Log("key down: " + e.keyCode);
                     ExecuteEvents.Execute(b, pointerEvent, ExecuteEvents.pointerEnterHandler);
@@ -231,7 +231,7 @@ public class VRKeyboard : MonoBehaviour {
                     }
                 }
 
-                if (e.type == EventType.keyUp)
+                if (e.type == EventType.KeyUp)
                 {
                     //Debug.Log("key up: " + e.keyCode);
                     ExecuteEvents.Execute(b, pointerEvent, ExecuteEvents.pointerUpHandler);

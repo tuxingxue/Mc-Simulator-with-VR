@@ -130,7 +130,7 @@ public class main : MonoBehaviour {
 		calibrateText = buttonText.GetComponent<UnityEngine.UI.Text> ();
 		calibrateText.text = "Look Straight Forward!";
 		yield return new WaitForSeconds (3);
-		InputTracking.Recenter();
+		UnityEngine.XR.InputTracking.Recenter();
 		isCalibrating = false;
 		calibrateTimer = 0;
 		calibrateText.text = "Calibrate VR";

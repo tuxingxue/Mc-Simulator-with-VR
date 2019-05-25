@@ -141,7 +141,7 @@ public class TeleportController : MonoBehaviour {
        
         if (allowForRealHeadRotation)
         {
-            Quaternion headRotation = UnityEngine.VR.InputTracking.GetLocalRotation(UnityEngine.VR.VRNode.Head);
+            Quaternion headRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.Head);
             Vector3 euler = headRotation.eulerAngles;
             euler.x = 0;
             euler.z = 0;

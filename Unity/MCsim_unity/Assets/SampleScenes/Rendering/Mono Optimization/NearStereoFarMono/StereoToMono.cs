@@ -115,7 +115,7 @@ public class StereoToMono : MonoBehaviour {
             }
 
             // calculate correct translation to make mono image appear at switching distance
-            Vector2 fov = OVRManager.display.GetEyeRenderDesc(VR.VRNode.LeftEye).fov;
+            Vector2 fov = OVRManager.display.GetEyeRenderDesc(UnityEngine.XR.XRNode.LeftEye).fov;
             float translate = OVRManager.profile.ipd / (Mathf.Tan(fov.x * 0.5f * Mathf.Deg2Rad) * 2.0f * monoDistance);
             if (monoAtInfinity) translate = 0;
 

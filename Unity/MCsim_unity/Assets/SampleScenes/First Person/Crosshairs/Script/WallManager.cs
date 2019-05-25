@@ -32,7 +32,7 @@ public class WallManager : MonoBehaviour {
     /// <summary>
     /// Use particle for damage effect
     /// </summary>
-    public ParticleEmitter damageEffect = null;
+    //public ParticleEmitter damageEffect = null;
 
     /// <summary>
     /// Variables for flashing objects
@@ -54,9 +54,9 @@ public class WallManager : MonoBehaviour {
             defaultColor = this.GetComponent<Renderer>().material.color;
         }
 
-        damageEffect = Instantiate(damageEffect) as ParticleEmitter;
-        damageEffect.transform.SetParent(this.transform);
-        damageEffect.emit = false;
+        //damageEffect = Instantiate(damageEffect) as ParticleEmitter;
+        //damageEffect.transform.SetParent(this.transform);
+        //damageEffect.emit = false;
 	}
 
 
@@ -105,7 +105,7 @@ public class WallManager : MonoBehaviour {
     /// </summary>
     public void Damage(Vector3 hitPos, float activeTime)
     {
-        this.damageEffect.transform.position = hitPos;
+        //this.damageEffect.transform.position = hitPos;
         StartCoroutine(DamageEffectProcess(activeTime));       
     }
 
@@ -114,7 +114,7 @@ public class WallManager : MonoBehaviour {
     /// </summary>
     IEnumerator DamageEffectProcess(float fireActiveTime)
     {
-        damageEffect.emit = true;
+        //damageEffect.emit = true;
 
         float deltaTime = 0.0f;
         while (deltaTime < fireActiveTime)
@@ -123,7 +123,7 @@ public class WallManager : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-        damageEffect.emit = false;
+        //damageEffect.emit = false;
 
         yield return null;
     }

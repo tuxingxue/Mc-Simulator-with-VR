@@ -88,8 +88,8 @@ public class modelController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		checkSimulinkConnection ();
-		filterRigNoise(); 
+		//checkSimulinkConnection ();
+		//filterRigNoise(); 
 		moveMotorcycle (); // move and rotate model
 		rotateHandlebar(steeringAngle); // update handlebar
 		animateThrottle (); // animate hand for throttle
@@ -145,10 +145,12 @@ public class modelController : MonoBehaviour {
 	}
 
 	void moveMotorcycle(){
-		// move forward
+        // move forward
+        print(Input.GetAxis("Horizontal"));
+        print(Input.GetAxis("Vertical"));
 
-		Vector3 FORWARD = transform.TransformDirection(Vector3.forward);
-		transform.localPosition += FORWARD * speed *Time.deltaTime / 3.6f;
+        Vector3 FORWARD = transform.TransformDirection(Vector3.forward);
+		transform.localPosition += FORWARD * Input.GetAxis("Vertical") * Time.deltaTime / 0.1f;
 		//Rotate model in x y z
 		truePitch = 0; // boost pitch depending on simulink value
 		transform.rotation = Quaternion.Euler(truePitch, yaw, roll); // dont pitch model (otherwise no incline from game)
